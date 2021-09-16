@@ -10,23 +10,26 @@ public class Main {
 		for (int i = 0; i < arr.length; i++) {
 			for (int j = 0; j < arr[i].length; j++) {
 				
-				//en son elemente catanda sag da ashagi da out of bounddur deye hec birin yoxlamadan sadece o elementi counta sayir
+// When it reaches the last element, due to the right part also being out of bound in the down side it does not inspect any other element to the count variable but only the last element
 				if (i == arr.length - 1 && j == arr[i].length - 1) {
 					count++;
 				} 
-				// column-un sonuna catanda ancaq sagi yoxlayir cunki bir ashagini yoxlasa out of bound olacaq
+				
+// When it reaches to the end of the column, it only inspects the right part because if it starts inspecting one step down it will be out of bound
 				else if (i == arr.length - 1) {
 					if (arr[i][j] != arr[i][j + 1]) {
 						count++;
 					}
 				} 
-				//row-nun sonuna catanda bir ashagini yoxlayir, cunki sagi yoxlasa out of bound olacaq
+				
+// When it reaches to the end of the row, it inspects one step down, because if it starts inspecting the right part it will be out of bound
 				else if (j == arr[i].length - 1) {
 					if (arr[i][j] != arr[i + 1][j]) {
 						count++;
 					}
 				} 
-				// esas hisse buradir, elementin sagini ve ashagisini yoxlayir, beraber deyilse count artir
+
+// This is the main part of the program, here it inspects the right side and down side of an element, if they are not equal then count variable increases
 				else if (arr[i][j] != arr[i][j + 1] && arr[i][j] != arr[i + 1][j]) { 
 					count++;
 				}
